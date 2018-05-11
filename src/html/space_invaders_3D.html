@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8>
+    <title>Zelda Invaders</title>
+
+    <!-- LIBRAIRIES JS -->
+    <script type='text/javascript' src="js/lib/three.js"></script>
+    <script type='text/javascript' src="js/lib/orbital.js"></script>
+    <script type='text/javascript' src="js/lib/Detector.js"></script>
+    <script type='text/javascript' src="js/lib/Inflate.min.js"></script>
+
+    <script type='text/javascript' src="js/lib/keydrown.js"></script>
+    <script type='text/javascript' src="js/lib/howler.js"></script>
+    <script type='text/javascript' src='js/lib/Tween.js'></script>
+
+    <script src="js/lib/threex/THREEx.screenshot.js"></script>
+    <script src="js/lib/threex/THREEx.FullScreen.js"></script>
+    <script src="js/lib/threex/THREEx.WindowResize.js"></script>
+
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    <!-- CSS -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- ICONE -->
+    <link rel="icon" href="medias/images/link.ico" />
+</head>
+
+<body>
+    <div id="accueil">
+        <div id="centre-accueil">
+            <div id="zelda-title"></div>
+            <div id="auteur"></div>
+            <div id="instruction-accueil"></div>
+            <div id="points">
+                <span style="font-size: 140%;"> Points </span>
+                <div><span id="rubisVert">$</span> = 10 PTS </div>
+                <div><span id="rubisBleu">$</span> = 20 PTS </div>
+                <div><span id="rubisRouge">$</span> = 40 PTS </div>
+            </div>
+        </div>
+    </div>
+    <div id="bande-message">
+        <div id="centre-message">
+            <div style='color: #AD960A;' id="message"></div>
+            <div id="instruction"></div>
+            <div id="scorefinal"></div>
+        </div>
+    </div>
+    <div id="info">
+        <div id="info_top_left">
+            <span class="score">SCORE <span style="background-color: #AD960A;" id="score"></span></span>
+            <span style="font-family: symbole" class="trifoce">b</span>
+            <span class="level">LEVEL <span style="background-color: #AD960A;" id="level"></span></span>
+        </div>
+        <div id="info_top_right">
+            <span class="life"><span style="font-family: zelda2" class="jaune" id="life"></span></span>
+        </div>
+
+        <div id="info_bottom">
+            <i class="jaune">H</i> Help <span style="font-family: symbole" class="trifoce">b</span>
+            <i class="jaune">F</i> Fullscreen <span style="font-family: symbole" class="trifoce">b</span>
+            <i class="jaune">K</i> KILL ALL<span style="font-family: symbole" class="trifoce">b</span>
+            <i class="jaune">M</i> MUTE MUSIC<span style="font-family: symbole" class="trifoce">b</span>
+            <i class="jaune">P</i> PAUSE<span style="font-family: symbole" class="trifoce">b</span>
+            <i class="jaune">S</i> Screenshot
+        </div>
+        <div id="info_middle">
+            <i class="jaune">0</i> Default camera <span style="font-family: symbole" class="trifoce">b</span> <i class="jaune">1</i> Player camera <br /><br />
+            <i class='fa fa-caret-left'></i> : Move left <i class='fa fa-caret-right'></i> : Move right <i class='fa fa-minus'></i> : Fire <br/>
+        </div>
+    </div>
+
+    <!-- FICHIERS JS APP -->
+    <script src="js/app/decor.js"></script>
+    <script src="js/app/interface.js"></script>
+    <script src="js/app/audio.js"></script>
+    <script src="js/app/chargementModele.js"></script>
+    <script src="js/app/joueur.js"></script>
+    <script src="js/app/niveau.js"></script>
+    <script src="js/app/projectile.js"></script>
+    <script src="js/app/ennemi.js"></script>
+    <script src="js/app/ligneEnnemie.js"></script>
+    <script src="js/app/ligneBouclier.js"></script>
+    <script src="js/app/bouclier.js"></script>
+    <script src="js/app/horde.js"></script>
+    <script src="js/app/main.js"></script>
+    <script src="js/index.js" type="text/javascript"></script>
+
+</body>
+
+</html>

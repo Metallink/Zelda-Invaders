@@ -1,0 +1,234 @@
+/* ======================== POLICE PERSONNALISEE ======================== */
+
+@font-face {
+    font-family: 'zelda1';
+    src: url('fonts/HyliaSerifBeta-Regular.otf');
+}
+
+@font-face {
+    font-family: 'symbole';
+    src: url('fonts/HylianSymbols.ttf');
+}
+
+@font-face {
+    font-family: 'zelda2';
+    src: url('fonts/ReturnofGanon.ttf');
+}
+
+@font-face {
+    font-family: 'rubis';
+    src: url('fonts/Triforce.ttf');
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    overflow: hidden;
+    color: white;
+    font-family: symbole;
+    background-color: black;
+}
+
+/* ======================== BARRES D'INFOS ======================== */
+
+#info_top_left {
+    text-decoration: none;
+    position: absolute;
+    font-family: zelda1;
+    font-size: 2.3em;
+    /* background-color: rgba(173, 150, 10, 0.3); */
+    top: 0;
+    left: 0;
+    padding-top: 40px;
+    padding-left: 20px;
+}
+
+#info_top_right {
+    text-decoration: none;
+    text-align: center;
+    position: absolute;
+    font-family: zelda1;
+    font-size: 6em;
+    /* background-color: rgba(173, 150, 10, 0.3); */
+    top: 0;
+    right: 0;
+    padding: 20px;
+}
+
+#info_bottom {
+    text-align: center;
+    font-family: zelda2;
+    font-size: 1.6em;
+    text-decoration: none;
+    background-color: rgba(173, 150, 10, 0.3);
+    border-radius: 10% 25%;
+    position: absolute;
+    padding: 35px;
+    right: 0;
+    bottom: 0;
+}
+
+#info_middle {
+    text-align: center;
+    text-decoration: none;
+    position: absolute;
+    font-family: zelda2;
+    font-size: 1.4em;
+    background-color: rgba(173, 150, 10, 0.3);
+    width: 450px;
+    min-width: 450px;
+    height: 100px;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding: 5px;
+}
+
+/* ======================== ECRAN D'ACCUEIl/MESSAGES ======================== */
+
+#accueil, #bande-message {
+    z-index: 5;
+    width: 100%;
+    visibility: hidden;
+    position: absolute;
+    bottom: 50%;
+    min-height: 20%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#centre-accueil, #centre-message {
+    z-index: 5;
+    visibility: hidden;
+    position: absolute;
+    margin: 0px;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    display: table-cell;
+    color: #ffffff;
+    background-color: rgba(173, 150, 10, 0.2);
+    vertical-align: middle;
+    font-family: zelda2;
+}
+
+#zelda-title {
+    font-size: 400%;
+    text-transform: uppercase;
+}
+
+#zelda {
+    color: #AD960A;
+    font-size: 1.7em;
+    font-family: zelda1;
+}
+
+.triforce {
+    font-family: symbole;
+    text-transform: lowercase;
+    color: #AD960A;
+    font-size: 2em;
+}
+
+#zelda {
+    color: #AD960A;
+    font-size: 1.7em;
+    font-family: zelda1;
+}
+
+#message {
+    font-size: 400%;
+    text-transform: uppercase;
+    font-family: zelda1;
+}
+
+#auteur, #instruction {
+    padding-top: 10px;
+    padding-bottom: 25px;
+    font-size: 2.5em;
+    font-family: zelda2;
+}
+
+#instruction-accueil, #scorefinal {
+    padding: 20px;
+    font-size: 1.5em;
+    font-family: zelda1;
+}
+
+#instruction-accueil {
+    animation: 1s blinker linear infinite;
+    -webkit-animation: 1s blinker linear infinite;
+    -moz-animation: 1s blinker linear infinite;
+}
+
+@-moz-keyframes blinker {
+    0% {
+        opacity: 1.0;
+    }
+    50% {
+        opacity: 0.0;
+    }
+    100% {
+        opacity: 1.0;
+    }
+}
+
+@-webkit-keyframes blinker {
+    0% {
+        opacity: 1.0;
+    }
+    50% {
+        opacity: 0.0;
+    }
+    100% {
+        opacity: 1.0;
+    }
+}
+
+@keyframes blinker {
+    0% {
+        opacity: 1.0;
+    }
+    50% {
+        opacity: 0.0;
+    }
+    100% {
+        opacity: 1.0;
+    }
+}
+
+#points {
+    font-size: 250%;
+    text-align: center;
+}
+
+#rubisVert {
+    color: #21e047;
+    font-family: rubis;
+    text-align: center;
+}
+
+#rubisBleu {
+    color: #2064f7;
+    font-family: rubis;
+    text-align: center;
+}
+
+#rubisRouge {
+    color: #ce0606;
+    font-family: rubis;
+    text-align: center;
+}
+
+.text-blue {
+    color: #00BFFF;
+}
+
+.jaune {
+    color: #AD960A;
+}

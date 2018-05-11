@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Rapport SIA - Zelda Invaders</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="rapport/css/main.css" />
+    <!-- ICONE -->
+    <link rel="icon" href="rapport/images/link.ico" />
+    <!-- FONTAWESOME -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+    <!-- JAVASCRIPT -->
+    <script type="text/javascript" src="rapport/js/main.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="banniere">
+        </div>
+    </header>
+
+    <section>
+        <div id="logo" class="black_box">
+            <span>Projet SIA - Zelda Invaders</span>
+        </div>
+    </section>
+
+    <div id="main_contener">
+        <div id="conteners">
+            <div id="left_content">
+                <h1 style="padding-top: 20px;">INTRODUCTION ... //</h1>
+                <p>
+                    Dans le cadre de l’UE de <i>Synthèse d’Image Avancée</i>, il nous a été demandé de réaliser un projet qui consiste à reproduire le très célèbre <strong><a href="https://threejs.org/docs/index.html#manual/introduction/Creating-a-scene" alt="site de Three.js">Space Invaders</a></strong>                    sous forme de jeu tournant sur navigateur web en utilisant la bibliotheque <strong>Javascript Three.JS</strong>.
+                </p>
+                <p>
+                    Il s’agit d’un jeu vidéo Japonais sorti en 1978 de type <em>Shoot them up</em>. Le but est de contrôler un vaisseau et de détruire les vagues croissantes d’ennemis qui avancent de plus en plus vite vers nous.
+
+                </p>
+                <p>
+                    Nous devions reproduire un remake de ce jeu vidéo en reprenant les bases de <a href="http://www.jeuxclic.com/jeux.php?id=9814" alt="site vers le jeu Space Invaders">cette version</a> et en ajoutant certaines features.
+                </p>
+
+                <p style="font-size: 1.9em">
+                    Le jeu est accessible en cliquant <a href="space_invaders_3D.html" alt>ici</a>.
+                </p>
+
+                <h1>GRAPHISME ... //</h1>
+                <p>
+                    Le choix des graphismes étant libre, nous nous sommes très vite tournés vers l’univers d’un autre célèbre jeu vidéo japonais. Nous avons essayés de mélanger les deux genres et de produire une sorte de <i>crossover</i> entre <strong>Space Invaders</strong>                    et <strong>Zelda</strong>.
+                </p>
+                <p>
+                    Dans l’optique de rester dans cet univers rétro, le choix des modèles 3D se devait de l’être également. Tous les modèles ont été modélisés par nous-même en 3D avec le logiciel <em>Blender</em>.
+                </p>
+                <p>
+                    Chaque modèle a été modélisé par la concaténation et duplication de simples cubes en suivant un patron de pixel en 2D. Le résultat 2D/3D est voulu pour rester dans l’esprit jeux 8 bits. Les materials ne sont que de simples couleurs basiques appliquées
+                    à des groupes de cubes.
+                </p>
+
+                <!-- IMAGE -->
+                <img id="image-1" src="rapport/images/blender.PNG" alt="Modele Blender">
+                <div id=" myModal " class="modal">
+                    <span class="close ">&times;</span>
+                    <img class="modal-content " id="img01">
+                    <div id="caption "></div>
+                </div>
+
+                <h1>MODELE 3D ... //</h1>
+                <div>
+                    <ul>
+                        <li>Le modèle <strong>Link</strong>, qui est issue de <em>Zelda A link to the Past</em>, représente le <strong>joueur</strong>. Son orientation de base et la direction de son épée étant orienté dans la bonne direction, une légère inclinaison
+                            permet de rendre Link visible par la caméra et qu'il ne soit pas plat à l’horizontal.</li>
+                        <li><strong>Les ennemis</strong> sont représentés par de vils <strong>Rubis</strong>, toujours issus de l’univers de <em>Zelda</em>. Les 3 types d’ennemis originaux ont été représentés par les 3 différentes couleurs de rubis existantes
+                            dans le jeu. Chaque <i>rubis/ennemi</i> se diffère par une couleur (Vert/Bleu/Rouge). Nous avons essayé de faire la relation entre les différents points des ennemis (10, 20 et 40) avec la valeur monétaire de ces 3 couleurs
+                            de rubis.(vert 1 rubis, bleu 20 et rouge 40).</li>
+                        <li>Les <strong>boucliers</strong> sont représentés par des triangles jaunes, symboles du jeu <strong>Zelda</strong> appelés <em>Triforces</em>.</li>
+                        <li>
+                            <stong>Les projectiles</stong> sont pour les ennemis et le joueur représentés par une épée qui est bien évidemment l’épée tirée du jeu. Il s’agit du même modèle d’épée que celle de notre modèle <strong>Link</strong>.
+                        </li>
+                    </ul>
+                </div>
+
+                <h1>SKYBOX ... //</h1>
+                <p>
+                    Le jeu se situe sur un simple plateau quadrillé flottant dans l’espace.
+                </p>
+                <p>
+                    Dans un premier temps, nous avons essayé d’implémenter une skybox avec ce soleil <i>dynamique</i> en utilisant <a href="https://vanruesc.github.io/postprocessing/public/demo/#god-rays">cette bibliothèque</a> mais il en a résulté par
+                    une chute drastique des FPS: environs 10fps. Nous avons donc décidé d’abandonner cette idée et de partir sur quelque chose de plus réaliste.
+                </p>
+                <p>
+                    Finalement l’espace a été modélisé en utilisant une Skybox sphérique dont les normales sont tournées vers l'intérieur et en utilisant une image à haute résolution.
+                </p>
+                <p>
+                    De plus, nous avons généré dynamiquement des particules représentant des étoiles à l’aide de <a href="https://aerotwist.com/tutorials/creating-particles-with-three-js/">ce tutoriel</a>. Elles s’animent dans un mouvement de rotation
+                    pour donner un côté plus dynamique au jeu. Nous avons bien sûr réduit le nombre de particules pour limiter la redondance avec la skybox.
+                </p>
+                <h1>ARCHITECTURE ... //</h1>
+                <h2>Organisation ... </h2>
+                <p>
+                    Dans un premier temps, n’étant pas encore familier avec la bibliothèque <em>Three.js</em>, nous avons écris le code de manière <em>impérative</em>. Cependant, il est devenu au fil du temps plus compliqué de s’y retrouver, et l’idée
+                    d'organiser ce projet en utilisant <strong>l’Orienté Objet</strong> et des <strong>Prototypes</strong> est devenu inéluctable.
+                </p>
+                <p>
+                    Toutefois, la notion de prototype étant particulièrement difficile à appréhender, plusieurs blogs et tutoriels (<a href="https://blog.xebia.fr/2013/06/10/javascript-retour-aux-bases-constructeur-prototype-et-heritage/">ici</a> et
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create">là</a>) ont été utiles à la compréhension de cette notion.
+                </p>
+                <p>
+                    Les prototypes nous ont amenés à penser différemment. Cela nous a conduit à séparer les différents prototypes remplissant un ensemble de fonctions communnes dans plusieurs fichiers <i>Javascript</i> (un prototype par fichier).
+                </p>
+
+                <div>
+                    <ul>
+                        <li>Le fichier <strong>index.js</strong> est le point d'entrée du programme. Il instancie un objet de type <strong>main</strong> et invoque sa méthode <strong>animate()</strong>, ce qui a pour but de lancer l’animation générale du
+                            jeu.
+                        </li>
+                        <li>Le fichier <strong>main.js</strong> est la classe principale contenant le moteur du programme. Tous les prototypes y sont instanciés.. Il contient entre autres les fonctions <strong>init()</strong> et <strong>animate()</strong>                            qui permettent d’instancier et d’animer le jeu.</li>
+                        <li>Le fichier <strong>chargementModele.js</strong> est également un des fichiers importants car il permet de manière générale et dynamique, en récupérant en paramètre des données spécifiques telles que les hitbox, le chemin du fichier
+                            du modèle 3D, de pouvoir charger le modèle et de le paramétrer (position, rotation..).</li>
+                    </ul>
+                </div>
+                <h2><i>This</i> et héritage ... </h2>
+                <p>
+                    Il est important de comprendre l’utilité des prototypes. En effet, toutes les classes sont reliées les unes aux autres d’une certaine manière par les <strong>heritages</strong> et <strong>chaine de prototypage (Object.Create)</strong>.
+                </p>
+                <p>
+                    La classe <strong>main.js</strong> par exemple, qui est la classe centrale, surcharge la classe parente qui est <strong>THREE.Scene</strong>. Cela signifie qu’un objet <em>main</em> hérite de toutes les propriétés de <strong>THREE.Scene</strong>                    et ainsi l'écriture <em>this</em> de l’objet main équivaut au <em>this</em> de <strong>THREE.Scene</strong>.C'est très pratique car ce <em>this.main</em> sera utilisé par tous les autres prototypes pour être ajouté et regroupé à la
+                    scène. Ainsi le code est plus clair.
+                </p>
+                <h2>La classe <i>ChargementModele</i> ... </h2>
+                <p>
+                    Cette classe est connectée à plusieurs autres classes. Elle a pour but d’instancier, charger le modèle de toutes les entités (joueur, ennemis, boucliers et projectiles). <br /><br /> Toutes les classes entités qui l’utilisent surchargent
+                    leur classe par cette classe <em>ChargementModele</em>. Ainsi cette dernière est intégrée à toutes les classes entités appelées.
+                </p>
+
+                <h1>GESTION DES EVENEMENTS ... //</h1>
+                <h2>Les <i>Hitbox</i> ... </h2>
+                <p>
+                    L’un des plus gros problèmes rencontrés dans le développement de cette application a été le problème des hitbox.<br /> En effet, aucun moyen n’a été trouvé pour le faire proprement. La solution qui a été mise en place se trouve dans
+                    le fichier <strong>ChargementModele.js</strong>.
+                </p>
+                <p>
+                    Après avoir chargé un modèle, un <i>cube blanc visible</i> a été créé et ainsi par des translations/agrandissements, nous avons ajustés à la volée et visuellement le cube pour qu’il englobe parfaitement le modèle. C’est approximatif
+                    mais il semble que ce soit une solution qui fonctionne.
+                </p>
+
+                <h2>Les <i>Collisions</i> ... </h2>
+                <p>
+                    Les collisions entre les projectiles et les différentes entités (joueur, ennemis et boucliers) sont gérés par une unique méthode dans la classe <strong>Projectile</strong>. Les collisions sont gérées par un <strong>Raycaster</strong>                    de la manière suivante:
+                </p>
+                <div>
+                    <ul>
+                        <li><strong>Joueur</strong> et <strong>ennemis</strong> détectent les collisions et cela induit la perte d'un point de vie par le joueur et la destruction de l'ennemi (suppression visuelle de la scène). <em>Chaque tireur est chargé de détruire également son projectile de la scène</em>.</li>
+                        <li>Le fichier <strong>main.js</strong> est la classe principale contenant le moteur du programme. Tous les prototypes y sont instanciés.. Il contient entre autres les fonctions <strong>init()</strong> et <strong>animate()</strong>                            qui permettent d’instancier et d’animer le jeu.</li>
+                        <li>
+                            Concernant les <strong>boucliers</strong>, une tentative d’implémenter la destruction partielle d’un bouclier en cas de collision par un projectile joueur ou ennemi a été effectué. En effet, le bouclier étant un modèle 3D à
+                            part entière, il n’est pas évident de détruire une partie visuellement parlant.<br /> <br />La solution de charger un deuxième modèle de bouclier "<em>cassé</em>" au même endroit que le premier modèle de bouclier “<em>entier</em>”,
+                            <strong>invisible</strong>, et de rendre <strong>invisible</strong> le bouclier “<em>entier</em>” et <strong>visible</strong> le bouclier “<em>cassé</em>” après un certain nombre de collisions détectées, aurait été une solution.
+                            Par manque de temps, cette solution n’a pu être implémenter. Il s’agit d’une piste d’amélioration.
+                        </li>
+                    </ul>
+                </div>
+
+                <h2><i>Intelligence artificielle</i> et dynamisme ... </h2>
+                <h3><i>Intelligence artificielle</i></h3>
+                <p>
+                    Les ennemis sont dotés d’une sorte d'intelligence artificielle. Il existe une fonction dans la classe <strong>ligneEnnemi</strong> qui sélectionne l’ennemi <em>le plus proche du joueur</em> pour tirer. De plus, la <em>cadence des tirs augmente</em>                    proportionnellement et dynamiquement avec les niveaux.
+                </p>
+                <h3>Dynamisme</h3>
+                <p>
+                    La classe <strong>horde</strong> représente l’ensemble des ennemis.<br /> Parmis cette horde, la classe <strong>LigneEnnemi</strong> représente les lignes d’ennemis. Cela permet de gérer <strong>indépendamment</strong> le dynamisme
+                    de chaque ligne. La composition des lignes est variée et générée dynamiquement, ainsi que leur vitesse de déplacement. Cela donne une indépendance de gestion des différentes lignes, et les ennemis semblent donc dynamiques.<br /> <i>La touche de triche <strong>K</strong></i>                    a été implémentée et permet de le remarquer rapidement.
+                </p>
+                <h1>AUDIO, CAMERAS ET DIALOGUES</h1>
+                <h2>Audio</h2>
+                <p>
+                    Tous les sons et musiques de notre jeu proviennent du premier jeu vidéo <strong>The Legend of Zelda</strong> sortie en <em>1986</em> et sont des sons <strong>8 bits</strong>. Cela <em>accentue</em> encore plus le thème <em>Zelda</em>                    et le
+                    <em>côté retro de <strong>Space invader</strong></em> avec des sons d'époque.
+                </p>
+                <p>
+                    On notera qu'un son est émis pour chaque événement (début de partie, transitions, game over) et pour toutes les collisions (ennemis, joueur et boucliers).
+                </p>
+                <h2>Interactions avec l’utilisateur</h2>
+                <h3>Boites de dialogues</h3>
+                <p>
+                    La classe
+                    <stong>Interface</stong> regroupe toutes les fonctionnalités gérant l'aspect <em>interface et dialogues avec l’utilisateur</em>. Elles permet d’afficher les différents menus, barres d’informations que l’on voit à l’écran.<br /> De plus, un
+                    message est affiché à chaque événement important de la partie pour en informer le joueur.
+                </p>
+                <p>
+                    <em>La touche <strong>H</strong></em> a été implémentée et permet d’afficher une boîte de dialogue informant sur les touches pour tirer, déplacer le joueur ainsi que les différentes touches pour les caméras.
+                </p>
+                <h3>Textes <i>HTML</i></h3>
+                <p>
+                    Le choix de ne pas utiliser la classe
+                    <stong>TextGeometry</stong> fournit par <strong>Three.js</strong> peut surprendre mais ce choix est délibéré. Tout d’abord, cela permet de charger <em>moins de modèles</em> et <em>d'améliorer les performances</em>.
+                </p>
+                <p>
+                    Par ailleurs, ce choix est justifié pour des raisons esthétiques. Nous avons optés pour l’ajout de simple <strong>texte HTML</strong> via le <strong>DOM</strong> par simplicité et surtout par soucis d’apparences.
+                </p>
+                <p>
+                    En effet, plusieurs <strong>polices</strong> d’écritures issues de <em>Zelda</em> accentuent encore plus l’univers et le thème de ce jeu.
+                </p>
+                <p>
+                    <strong>L’affichage en plein écran</strong> et le <strong>redimensionnement correct</strong> de la fenêtre est possible en pressant <em>la touche <strong>F</strong></em>
+                </p>
+                <h2>Les Caméras</h2>
+                <p>
+                    Plusieurs vues de caméras sont disponibles et on peut y accéder en pressant les touches suivantes:
+                </p>
+                <div>
+                    <ul>
+                        <li><strong>Touche 0</strong>: caméra par défaut</li>
+                        <li><strong>Touche 1</strong>: caméra joueur en vue première personne</li>
+                    </ul>
+                </div>
+
+                <p>
+                    Une transition visuelle est effectuée lorsque l’on presse les différentes touches de caméra grâce à <strong>Tween.Js</strong>. Cela ajoute un côté agréable et dynamique.
+                </p>
+                <p>
+                    Cependant, nous avions certains bugs lorsque nous passions de la caméra <i>latéral</i> à la caméra <i>joueur</i>. A la fin de la transition, la caméra ne "<i>regardait</i>" pas dans la bonne direction.
+                </p>
+                <p>
+                    Nous avons solutionné ce problème en faisant une première transition par la caméra <i>par défaut</i>, puis en faisant une deuxième transition vers la caméra <i>joueur</i>.
+                </p>
+
+                <p>
+                    La gestion de la caméra n'a pas été evidente car nous position???????????????????????????????????????????????????????????????????
+                </p>
+                <h1>BIBLIOTHEQUES UTILISEES</h1>
+                <h2><a href="https://jeremyckahn.github.io/keydrown/" alt="Keydrown.js">Keydrown.js</a></h2>
+                <p>
+                    Cette API permet de gérer les <strong>évènements claviers</strong>. Ce choix est motivé par le fait que contrairement aux events, cette API gère les events <em>KeyUp</em> et <em>KeyDown</em>.
+                </p>
+                <h2><a href="https://howlerjs.com/" alt="Howler.js">Howler.js</a></h2>
+                <p>
+                    Cette API est dédiée à la gestion de la <strong>musique et des sons audios</strong>. Des méthodes permettent de faire des effets intéressants comme le <i>fade in</i> et <i>fade out</i> et ainsi permettent des transitions douces entre
+                    les musiques.
+                </p>
+                <h2><a href="https://howlerjs.com/" alt="Tween.js">Tween.js</a></h2>
+                <p>
+                    <strong>L'unique</strong> API <em>JavaScript</em> permet de gérer les <strong>effets de <a href="https://en.wikipedia.org/wiki/Inbetweening" alt"wikipedia de tweening">Tweening</a></strong>. Les <strong>Tweens</strong> permettent de
+                    faire des animations et transitions variant selon des <strong><a href="http://tweenjs.github.io/tween.js/examples/03_graphs.html" alt="page vers des exemples de courbe">courbes</a></strong>. Elle est utilisé dans notre cas pour les
+                    transitions caméra entre les différentes vues.
+                </p>
+
+                <h2><a href="http://www.threejsgames.com/extensions/" alt="Threex.js">Threex.js</a></h2>
+                <p>
+                    Cette riche API, basée sur <strong>Three.js</strong>, est dédiée au jeu vidéo. Dans notre cas, nous avons simplement utilisé les fonctions <em>THREEx.Fullscreen</em>, <em>THREEx.WindowResize</em> et <em>THREEx.screenshot</em> permettant
+                    respectivement l’affichage en <strong>plein écran</strong>, <strong>d’adapter dynamiquement</strong> la taille de la fenêtre et la <strong>capture d’écran</strong>.
+                </p>
+
+                <h1>FEATURES IMPLEMENTES</h1>
+                <table class="table-features">
+                    <thead>
+                        <tr>
+                            <th>Features demandés</th>
+                            <th>Implémentation</th>
+                        </tr>
+                    </thead>
+                    <br />
+                    <br />
+                    <tbody>
+                        <tr>
+                            <td style="padding-top: 20px;">Ecran d’accueil comme demandé </td>
+                            <td style="padding-top: 20px;"><i class="fas fa-check"></td>
+                        </tr>
+                        <tr>
+                            <td>Ecran <em>Game Over</em></td>
+                            <td><i class="fas fa-check"></td>
+                        </tr>
+                        <tr>
+                            <td>Utilisation de <em>Three.JS</em> + diverses bibliothèques</td>
+                            <td><i class="fas fa-check"></td>
+                        </tr>
+                        <tr>
+                            <td>Adaptation dynamique de la fenêtre</td>
+                            <td><i class="fas fa-check"></td>
+                        </tr>
+                        <tr>
+                            <td>Passage en plein écran <em>(touche <strong>F</strong>)</em></td>
+                            <td><i class="fas fa-check"></td>
+                        </tr>
+                        <tr>
+                            <td>Capture d’écran <em>(touche <strong>S</strong>)</em></td>
+                            <td><i class="fas fa-check"></td>
+                        </tr>
+                        <tr>
+                            <td>Gestion des ressources avec <a href="https://parceljs.org/" alt="site de Parcel js">Parcel</a></td>
+                            <td><i class="fas fa-times"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Les entités en 3D + matériaux</td>
+                            <td><i class="fas fa-check"></td>
+                        </tr>
+                        <tr>
+                            <td>Décors 3D</td>
+                            <td><i class="fas fa-check"></td>
+                        </tr>
+                        <tr>
+                            <td>Effet de Post-Processing</td>
+                            <td><i class="fas fa-times"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Dialogues avec l’utilisateur</td>
+                            <td><i class="fas fa-check"></td>
+                        </tr>
+                        <tr>
+                            <td>Affichage de l’aide (touche <em>(touche <strong>H</strong>)</em>)</td>
+                            <td><i class="fas fa-check"></td>
+                        </tr>
+                        <tr>
+                            <td>3 différentes vues <em>(touche <strong>0</strong> et <strong>1</strong>)</em></td>
+                            <td><i class="fas fa-check"></td>
+                        </tr>
+                        <tr>
+                            <td>Dégâts visuels lors des collisions</td>
+                            <td><i class="fas fa-times"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Gestion des collisions</td>
+                            <td><i class="fas fa-check"></td>
+                        </tr>
+                        <tr>
+                            <td>Projectiles disparaissent lors des collisions</td>
+                            <td><i class="fas fa-check"></td>
+                        </tr>
+                        <tr>
+                            <td>Dynamisme</td>
+                            <td><i class="fas fa-check"></td>
+                        </tr>
+                        <tr>
+                            <td>Présence IA + dextérité croissante avec les niveaux</td>
+                            <td><i class="fas fa-check"></td>
+                        </tr>
+                        <tr>
+                            <td>Effets sonores + musiques désactivables (touche M)</td>
+                            <td><i class="fas fa-check"></td>
+                        </tr>
+                        <tr>
+                            <td>Mode invincible <em>(touche <strong>I</strong>)</em></td>
+                            <td><i class="fas fa-times"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Kill les tous <em>(touche <strong>K</strong>)</em></td>
+                            <td><i class="fas fa-check"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br /><br /><br />
+            </div>
+        </div>
+    </div>
+
+    <div class="black_box" id="div-footer">
+            <div id="enfant">
+                    Rapport de projet de Synthèse d'Image Avancée de <strong id="me">Sameh EL AWADI</strong>.
+            </div>
+    </div>
+</body>
+</html>

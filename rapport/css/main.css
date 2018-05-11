@@ -1,0 +1,293 @@
+@font-face {
+    font-family: 'Share-Regular';
+    src: url('Share-Regular-fontfacekit/Share-Regular-webfont.eot');
+    src: url('font/Share-Regular-fontfacekit/Share-Regular-webfont.eot?#iefix') format('embedded-opentype'), url('font/Share-Regular-fontfacekit/Share-Regular-webfont.woff') format('woff'), url('font/Share-Regular-fontfacekit/Share-Regular-webfont.ttf') format('truetype'), url('font/Share-Regular-fontfacekit/Share-Regular-webfont.svg#Share-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background-image: url('../images/background.png');
+    font-size: 0.8em;
+    font-family: Share-Regular;
+    margin: 0px;
+    padding: 0px;
+}
+
+.black_box {
+    background-color: black;
+    height: 70px;
+    min-width: 1024px;
+    width: 100%;
+}
+
+#line {
+    background-color: white;
+    height: 1px;
+    width: 100%;
+    margin: 0px auto;
+}
+
+header {
+    background-image: url('../images/header4.jpg');
+    height: 298px;
+    background-repeat: no-repeat;
+}
+
+#div-footer {
+    position: sticky;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#me {
+    font-size: 1.3em;
+}
+
+#div-footer #enfant {
+    width: 100%;
+    color: white;
+    text-align: center;
+    font-size: 1.6em;
+}
+
+#logo {
+    text-align: center;
+    padding-top: 10px;
+    color: white;
+    font-family: Share-Regular;
+    font-size: 4.5em;
+}
+
+#logo span {
+    font-weight: bold;
+}
+
+#main_contener {
+    background-image: url('../images/background-characters.png');
+    width: 100%;
+    min-height: 100vh;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+}
+
+#conteners {
+    background-color: white;
+    width: 1000px;
+    min-height: 100vh;
+    margin: 0px auto;
+    text-align: justify;
+}
+
+#left_content {
+    width: 1000px;
+    min-height: 100vh;
+    background-color: #EEEFEF;
+    border-radius: 10px;
+}
+
+#left_content h1 {
+    font-size: 3.6em;
+    padding: 0px;
+    margin: 15px;
+}
+
+#left_content h2 {
+    font-size: 2em;
+    padding: 0px;
+    margin-left: 15px;
+}
+
+#left_content h3 {
+    font-size: 1.6em;
+    padding: 0px;
+    margin-left: 15px;
+}
+
+#left_content p {
+    font-size: 1.3em;
+    padding: 10px;
+    margin: 0px;
+}
+
+#left_content ul {
+    font-size: 1.3em;
+}
+
+#left_content li {
+    margin: 15px;
+}
+
+a {
+    position: relative;
+    display: inline-block;
+    outline: none;
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    text-align: center;
+}
+
+a:visited {
+    color: black;
+}
+
+a:hover, a:focus, a:active {
+    text-decoration: underline;
+    font-size: 1.1em;
+    background-color: gray;
+}
+
+/* ==== IMAGES ==== */
+
+#image-1 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#image-1:hover {
+    opacity: 0.7;
+}
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.9);
+    /* Black w/ opacity */
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+.modal-content, #caption {
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(0)
+    }
+    to {
+        transform: scale(1)
+    }
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover, .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 700px) {
+    .modal-content {
+        width: 100%;
+    }
+}
+
+/* ==== TABLE ==== */
+
+table.table-features {
+    /* font-family: Arial, Helvetica, sans-serif; */
+    width: 70%;
+    text-align: center;
+    border-collapse: collapse;
+    /* margin-left: 20px; */
+    /* margin-right: 20px; */
+    margin: auto;
+}
+
+table.table-features td, table.table-features th {
+    padding: 5px 3px;
+}
+
+table.table-features tbody td {
+    font-size: 1.2em;
+    /* font-weight: bold; */
+    color: #000000;
+    /* background-color: rgba(168, 168, 168, 0.2); */
+}
+
+table.table-features thead {
+    /* background: #BDC3C7; */
+    /* border-bottom: 1px solid black; */
+    /* margin-top: 100px; */
+}
+
+table.table-features thead th {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+    background-color: rgba(168, 168, 168, 0.2);
+}
+
+table.table-features tfoot td {
+    font-size: 13px;
+}
+
+table.table-features tfoot .links {
+    text-align: right;
+}
+
+table.table-features tfoot .links a {
+    display: inline-block;
+    background: #FFFFFF;
+    color: #398AA4;
+    padding: 2px 8px;
+    border-radius: 5px;
+}
